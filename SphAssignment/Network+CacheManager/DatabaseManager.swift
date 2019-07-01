@@ -49,4 +49,11 @@ class DatabaseManager: NSObject {
         return dataProvided
     }
 
+    class func clearData() {
+        if let realm = try? Realm() {
+            try? realm.write {
+                realm.deleteAll()
+            }
+        }
+    }
 }
