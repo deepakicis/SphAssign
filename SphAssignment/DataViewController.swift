@@ -42,7 +42,38 @@ class DataViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CustomCell", for: indexPath) as! CustomCell
+
+        cell.lblYear.text = "Year : " + String(describing: self.dataDetails[indexPath.row].year)
+        cell.lblDataConsumption.text = "Total mobile data usage: " + String(describing: self.dataDetails[indexPath.row].dataVolume)
+        
+        if !self.dataDetails[indexPath.row].isDecreaseVolumeData {
+            cell.decreaseVolumeDataImg.isHidden = true
+        }
+        else {
+            cell.decreaseVolumeDataImg.isHidden = false
+            cell.decreaseVolumeDataBtn.addTarget(self, action: #selector(self.pressButton(_:)), for: .touchUpInside)
+        }
+        
+        if(indexPath.row == (self.dataDetails.count-1)) && !self.isLoading {
+            let indicator = UIActivityIndicatorView(style: .gray)
+            indicator.startAnimating()
+            indicator.frame = CGRect(x: 0.0, y: 0.0, width: tableView.bounds.width, height: 44.0)
+            self.tableView.tableFooterView = indicator
+            self.tableView.tableFooterView?.isHidden = false
+        }
         return cell
+    }
+    
+    override func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        if(scrollView.contentOffset.y >= (scrollView.contentSize.height - scrollView.frame.size.height)) {
+            self.offset += self.limit
+            self.limit = 5
+            self.paintView()
+        }
+    }
+    
+    @objc func pressButton(_ sender: UIButton) {
+        self.ErrorMessage(errMsg: "Demonstrates a decrease in volume data.")
     }
     
     private func ErrorMessage(errMsg : String) {
