@@ -16,10 +16,9 @@
 		6A7A7BD722C5C0540073067C /* SphAssignmentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A7A7BD622C5C0540073067C /* SphAssignmentTests.swift */; };
 		6A7A7BE222C5C0540073067C /* SphAssignmentUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A7A7BE122C5C0540073067C /* SphAssignmentUITests.swift */; };
 		6A7A7BF022C5C4F70073067C /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A7A7BEF22C5C4F70073067C /* Constant.swift */; };
-		6A7A7C0022C6080F0073067C /* InternalServerErrorsTracing.json in Resources */ = {isa = PBXBuildFile; fileRef = 6A7A7BF222C6080F0073067C /* InternalServerErrorsTracing.json */; };
+		6A7A7C0022C6080F0073067C /* InternalServerErrors.json in Resources */ = {isa = PBXBuildFile; fileRef = 6A7A7BF222C6080F0073067C /* InternalServerErrors.json */; };
 		6A7A7C0122C6080F0073067C /* DataNotFound.json in Resources */ = {isa = PBXBuildFile; fileRef = 6A7A7BF322C6080F0073067C /* DataNotFound.json */; };
 		6A7A7C0222C6080F0073067C /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A7A7BF522C6080F0073067C /* DatabaseManager.swift */; };
-		6A7A7C0322C6080F0073067C /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A7A7BF622C6080F0073067C /* NetworkManager.swift */; };
 		6A7A7C0422C6080F0073067C /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A7A7BF822C6080F0073067C /* CustomCell.swift */; };
 		6A7A7C0522C6080F0073067C /* JsonParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A7A7BFA22C6080F0073067C /* JsonParser.swift */; };
 		6A7A7C0622C6080F0073067C /* DataDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A7A7BFC22C6080F0073067C /* DataDetail.swift */; };
@@ -62,10 +61,9 @@
 		6A7A7BE122C5C0540073067C /* SphAssignmentUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SphAssignmentUITests.swift; sourceTree = "<group>"; };
 		6A7A7BE322C5C0540073067C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6A7A7BEF22C5C4F70073067C /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
-		6A7A7BF222C6080F0073067C /* InternalServerErrorsTracing.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = InternalServerErrorsTracing.json; sourceTree = "<group>"; };
+		6A7A7BF222C6080F0073067C /* InternalServerErrors.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = InternalServerErrors.json; sourceTree = "<group>"; };
 		6A7A7BF322C6080F0073067C /* DataNotFound.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = DataNotFound.json; sourceTree = "<group>"; };
 		6A7A7BF522C6080F0073067C /* DatabaseManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
-		6A7A7BF622C6080F0073067C /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		6A7A7BF822C6080F0073067C /* CustomCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
 		6A7A7BFA22C6080F0073067C /* JsonParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JsonParser.swift; sourceTree = "<group>"; };
 		6A7A7BFC22C6080F0073067C /* DataDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataDetail.swift; sourceTree = "<group>"; };
@@ -185,7 +183,7 @@
 		6A7A7BF122C6080F0073067C /* AssetJson */ = {
 			isa = PBXGroup;
 			children = (
-				6A7A7BF222C6080F0073067C /* InternalServerErrorsTracing.json */,
+				6A7A7BF222C6080F0073067C /* InternalServerErrors.json */,
 				6A7A7BF322C6080F0073067C /* DataNotFound.json */,
 			);
 			name = AssetJson;
@@ -196,7 +194,6 @@
 			isa = PBXGroup;
 			children = (
 				6A7A7BF522C6080F0073067C /* DatabaseManager.swift */,
-				6A7A7BF622C6080F0073067C /* NetworkManager.swift */,
 			);
 			name = "Network+CacheManager";
 			path = "SphAssignment/Network+CacheManager";
@@ -359,7 +356,7 @@
 			files = (
 				6A7A7BCC22C5C0540073067C /* LaunchScreen.storyboard in Resources */,
 				6A7A7BC922C5C0540073067C /* Assets.xcassets in Resources */,
-				6A7A7C0022C6080F0073067C /* InternalServerErrorsTracing.json in Resources */,
+				6A7A7C0022C6080F0073067C /* InternalServerErrors.json in Resources */,
 				6A7A7BC422C5C0520073067C /* Main.storyboard in Resources */,
 				6A7A7C0122C6080F0073067C /* DataNotFound.json in Resources */,
 			);
@@ -482,7 +479,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				6A7A7C0422C6080F0073067C /* CustomCell.swift in Sources */,
-				6A7A7C0322C6080F0073067C /* NetworkManager.swift in Sources */,
 				6A7A7C0722C6080F0073067C /* Record.swift in Sources */,
 				6A7A7C0522C6080F0073067C /* JsonParser.swift in Sources */,
 				6A7A7C0222C6080F0073067C /* DatabaseManager.swift in Sources */,

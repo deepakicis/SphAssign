@@ -8,6 +8,8 @@
 
 import Foundation
 import RealmSwift
+import Hippolyte
+@testable import SphAssignment
 
 class JsonParser : NSObject {
 
