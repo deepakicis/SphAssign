@@ -15,4 +15,5 @@ class Constant {
     static let noNetworkNoDatabase : String = "No Internet connection. No offline data."
     static let serverError : String = "Unable to connect to server."
     static let serverNotFoundError : String = "Can not connect to server."
+    static let success : String = "success"
 }

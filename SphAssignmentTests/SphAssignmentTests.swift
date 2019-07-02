@@ -13,26 +13,6 @@ import Hippolyte
 
 class SphAssignmentTests: XCTestCase {
 
-    override func setUp() {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-    }
-
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
-
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
-
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
-    }
-
 }
 
 extension XCTestCase{
@@ -62,7 +42,7 @@ class NetworkError404: XCTestCase {
         let url : URL = URL(string: self.ApiGetData(offset: 0, limit: 25))!
         var stub = StubRequest(method: .GET, url: url)
         var response = StubResponse(error: NSError(domain: "https://data.gov.sg", code: 404, userInfo: [NSLocalizedDescriptionKey : Constant.serverNotFoundError]))
-        response.body = self.getJsonForStub(error: "NotFound")
+        response.body = self.getJsonForStub(error: "DataNotFound")
         stub.response = response
         
         Hippolyte.shared.clearStubs()
@@ -71,7 +51,6 @@ class NetworkError404: XCTestCase {
     }
     
     override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
         super.tearDown()
         Hippolyte.shared.stop()
     }
@@ -89,7 +68,7 @@ class NetworkError404: XCTestCase {
                 expectation.fulfill()
             }
         }
-        waitForExpectations(timeout: 10, handler: nil)
+        waitForExpectations(timeout:10, handler: nil)
     }
 }
 
@@ -101,7 +80,7 @@ class NetworkError500: XCTestCase {
         let url : URL = URL(string: self.ApiGetData(offset: 0, limit: 20))!
         var stub = StubRequest(method: .GET, url: url)
         var response = StubResponse(error: NSError(domain: "https://data.gov.sg", code: 500, userInfo: [NSLocalizedDescriptionKey : Constant.serverError]))
-        response.body = self.getJsonForStub(error: "ServerError")
+        response.body = self.getJsonForStub(error: "InternalServerErrors")
         stub.response = response
         Hippolyte.shared.clearStubs()
         Hippolyte.shared.add(stubbedRequest: stub)
@@ -114,7 +93,7 @@ class NetworkError500: XCTestCase {
         Hippolyte.shared.stop()
     }
     
-    func stubForInternalServerError() {
+    func testStubForInternalServerError() {
         
         let expectation = self.expectation(description: "Server Not Found")
         let dataProvider = List<DataDetail>()
@@ -122,6 +101,42 @@ class NetworkError500: XCTestCase {
             if(message == Constant.serverError){
                 assert(message == Constant.serverError)
                 assert(dataProvider.count == 0)
+                Hippolyte.shared.stop()
+                URLSession.shared.invalidateAndCancel()
+                expectation.fulfill()
+            }
+        }
+        waitForExpectations(timeout:10, handler: nil)
+    }
+}
+
+class Success200: XCTestCase {
+    
+    override func setUp() {
+        super.setUp()
+        
+        let url : URL = URL(string: self.ApiGetData(offset: 0, limit: 20))!
+        var stub = StubRequest(method: .GET, url: url)
+        var response = StubResponse(error: NSError(domain: "https://data.gov.sg", code: 200, userInfo: [NSLocalizedDescriptionKey : Constant.success]))
+        response.body = self.getJsonForStub(error: "Success")
+        stub.response = response
+        Hippolyte.shared.clearStubs()
+        Hippolyte.shared.add(stubbedRequest: stub)
+        Hippolyte.shared.start()
+    }
+    
+    override func tearDown() {
+        super.tearDown()
+        Hippolyte.shared.stop()
+    }
+    
+    func testStubForSuccess() {
+        
+        let expectation = self.expectation(description: "Success")
+        let dataProvider = List<DataDetail>()
+        DataService.APIUsageDetails(usageDetails: dataProvider, offset: 0, limit: 5) { (isCache, status, message, usageResponse) in
+            if(message == Constant.success){
+                assert(message == Constant.success)
                 Hippolyte.shared.stop()
                 URLSession.shared.invalidateAndCancel()
                 expectation.fulfill()

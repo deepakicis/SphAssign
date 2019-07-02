@@ -25,6 +25,7 @@
 		6A7A7C0722C6080F0073067C /* Record.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A7A7BFD22C6080F0073067C /* Record.swift */; };
 		6A7A7C0822C6080F0073067C /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A7A7BFF22C6080F0073067C /* DataService.swift */; };
 		6AA7079322CA431B00E0D16B /* DataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AA7079222CA431B00E0D16B /* DataTests.swift */; };
+		6AA7079522CB420F00E0D16B /* Success.json in Resources */ = {isa = PBXBuildFile; fileRef = 6AA7079422CB420F00E0D16B /* Success.json */; };
 		CD2AAC34ACCA78902C38E8F4 /* Pods_SphAssignmentTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9C890F9442F4BDBBA9721E1 /* Pods_SphAssignmentTests.framework */; };
 		E4732A9F658B3AC07853FA18 /* Pods_SphAssignmentUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 994049DB65DA4779AC270362 /* Pods_SphAssignmentUITests.framework */; };
 /* End PBXBuildFile section */
@@ -71,6 +72,7 @@
 		6A7A7BFD22C6080F0073067C /* Record.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Record.swift; sourceTree = "<group>"; };
 		6A7A7BFF22C6080F0073067C /* DataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 		6AA7079222CA431B00E0D16B /* DataTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataTests.swift; sourceTree = "<group>"; };
+		6AA7079422CB420F00E0D16B /* Success.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Success.json; sourceTree = "<group>"; };
 		6F82D5E9CE70C7E48321D6B4 /* Pods-SphAssignmentTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SphAssignmentTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SphAssignmentTests/Pods-SphAssignmentTests.release.xcconfig"; sourceTree = "<group>"; };
 		7A9A77BC861CF93833232155 /* Pods-SphAssignmentUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SphAssignmentUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SphAssignmentUITests/Pods-SphAssignmentUITests.release.xcconfig"; sourceTree = "<group>"; };
 		994049DB65DA4779AC270362 /* Pods_SphAssignmentUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SphAssignmentUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -129,7 +131,7 @@
 				6A7A7BF722C6080F0073067C /* CustomCell */,
 				6A7A7BF922C6080F0073067C /* DataParser */,
 				6A7A7BFB22C6080F0073067C /* Model */,
-				6A7A7BF422C6080F0073067C /* Network+CacheManager */,
+				6A7A7BF422C6080F0073067C /* DBManager */,
 				6A7A7BFE22C6080F0073067C /* WebServiceCalls */,
 				6A7A7BBD22C5C0520073067C /* SphAssignment */,
 				6A7A7BD522C5C0540073067C /* SphAssignmentTests */,
@@ -186,6 +188,7 @@
 		6A7A7BF122C6080F0073067C /* AssetJson */ = {
 			isa = PBXGroup;
 			children = (
+				6AA7079422CB420F00E0D16B /* Success.json */,
 				6A7A7BF222C6080F0073067C /* InternalServerErrors.json */,
 				6A7A7BF322C6080F0073067C /* DataNotFound.json */,
 			);
@@ -193,13 +196,13 @@
 			path = SphAssignment/AssetJson;
 			sourceTree = "<group>";
 		};
-		6A7A7BF422C6080F0073067C /* Network+CacheManager */ = {
+		6A7A7BF422C6080F0073067C /* DBManager */ = {
 			isa = PBXGroup;
 			children = (
 				6A7A7BF522C6080F0073067C /* DatabaseManager.swift */,
 			);
-			name = "Network+CacheManager";
-			path = "SphAssignment/Network+CacheManager";
+			name = DBManager;
+			path = SphAssignment/DBManager;
 			sourceTree = "<group>";
 		};
 		6A7A7BF722C6080F0073067C /* CustomCell */ = {
@@ -369,6 +372,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6AA7079522CB420F00E0D16B /* Success.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

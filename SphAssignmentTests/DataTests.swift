@@ -9,7 +9,7 @@
 import XCTest
 @testable import SphAssignment
 
-class cacheTests: XCTestCase {
+class DataTests: XCTestCase {
     
     var record : Record? = nil
     var usageDetail : DataDetail? = nil
@@ -36,11 +36,15 @@ class cacheTests: XCTestCase {
     }
     
     func getConsumption() {
-        let _ = DatabaseManager.getData()
+        let _consumption = DatabaseManager.getData()
+        
+        print("getConsumption \(_consumption)")
     }
     
     func getConsumptionByYear(year: Int) {
-        let _ = DatabaseManager.getData(year: year)
+        let _consumptionByYear = DatabaseManager.getData(year: year)
+        
+        print("getConsumptionByYear \(_consumptionByYear)")
     }
     
     func testPerformanceExample() {
